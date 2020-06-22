@@ -16,17 +16,18 @@ public class DynamicButton extends JFrame implements ActionListener{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setSize(500, 500);
+        AddButtons(10,10);
     }
 
     public void actionPerformed(ActionEvent event)
     {
     }
     
-    public void DynamicButtonMethod(int rows, int columns){
+    public void AddButtons(int rows, int columns){
 
         JFrame frame=new JFrame("Dynamic Buttons");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500,500); 
+        frame.setSize(1000,1000); 
         frame.setLayout(null);  
         frame.setVisible(true); 
 
@@ -100,6 +101,7 @@ public class DynamicButton extends JFrame implements ActionListener{
     
     public static void main(String[] args) {
 
+
         // Scanner inputRows = new Scanner(System.in);
         // System.out.println("Enter in how many rows you want for your buttons.");
         // String stringRows = inputRows.nextLine();
@@ -131,7 +133,7 @@ public class DynamicButton extends JFrame implements ActionListener{
         
         //DynamicButtonMethod(10,10);
         DynamicButton dybtn = new DynamicButton();
-        dybtn.DynamicButtonMethod(10,10);
+       // dybtn.DynamicButtonMethod(10,10);
         
 
         
