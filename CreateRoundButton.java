@@ -18,14 +18,14 @@ public class CreateRoundButton extends JButton {
     } else {
       g.setColor(getBackground());
     }
-    g.fillOval(0, 0, getSize().width-1,getSize().height-1);
+    g.fillOval(0, 0, getSize().width-5,getSize().height-5);
 
     super.paintComponent(g);
   }
 
   protected void paintBorder(Graphics g) {
     g.setColor(getForeground());
-    g.drawOval(0, 0, getSize().width-1,     getSize().height-1);
+    g.drawOval(0, 0, getSize().width-5,     getSize().height-5);
   }
 
   Shape shape;

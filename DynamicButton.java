@@ -68,9 +68,9 @@ public class DynamicButton extends JFrame implements ActionListener{
                     } else{
                         clickedAmt++;
                         if(clickedAmt%2==0){
-                            btn.setBackground(Color.BLACK);
+                            btn.setBackground(Color.GREEN);
                         } else{
-                            btn.setBackground(Color.WHITE);
+                            btn.setBackground(Color.YELLOW);
                         }
                     }
                     currentClick++;
