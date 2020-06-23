@@ -13,7 +13,7 @@ public class DynamicButton extends JFrame implements ActionListener{
 
     public DynamicButton(){
         super("Dynamic Buttons");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setSize(500, 500);
         AddButtons(10,10);
@@ -22,14 +22,15 @@ public class DynamicButton extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent event)
     {
     }
+
     
     public void AddButtons(int rows, int columns){
 
         JFrame frame=new JFrame("Dynamic Buttons");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1000,1000); 
+        frame.setSize(900,900); 
         frame.setLayout(null);  
-        frame.setVisible(true); 
+      
 
         int totalAmt = rows*columns;
         int xCoordinate = 50;
@@ -37,10 +38,8 @@ public class DynamicButton extends JFrame implements ActionListener{
         int NumRows =1;
         int NumCols =1;
 
-        JButton resetBtn = new JButton("R");
-        resetBtn.setBounds(0,0,50,50);
-        resetBtn.setBackground(Color.BLUE);
-
+       int finalXcd=0;
+       int finalycd=0;
     
     
         //ArrayList<JButton> buttonsList = new ArrayList<JButton>(totalAmt);
@@ -54,11 +53,11 @@ public class DynamicButton extends JFrame implements ActionListener{
             }
 
             JButton btn = new CreateRoundButton(NumRows+"-"+NumCols);
-            
+           //JButton btn  = new JButton(NumRows+"-"+NumCols);
             btn.setBounds(xCoordinate,yCoordinate,75,75);
             btn.setOpaque(false);
-            btn.setBackground(Color.RED);
-            
+            btn.setBackground(Color.LIGHT_GRAY);
+           
             
             btn.addActionListener(new ActionListener(){
 
@@ -81,18 +80,37 @@ public class DynamicButton extends JFrame implements ActionListener{
             frame.add(btn);
             xCoordinate = xCoordinate+ 75;
             NumCols++;
+            finalXcd=xCoordinate;
+            finalycd=yCoordinate;
         }
 
-        // resetBtn.addActionListener(new ActionListener(){
+        
 
-        //     public void actionPerformed(ActionEvent e) {
-        //         for(int j =0; j>totalAmt; j++){
-        //             //SetBackGnd(buttonsList.get(j));setActionCommand(String)
-        //         }
-        //     }
-        // });
+       // frame.pack();
 
-        frame.add(resetBtn);
+        JButton resetBtn = new JButton("Reset");
+       resetBtn.setBounds(finalXcd/2,finalycd+100,100,50);
+       resetBtn.setBackground(Color.gray);
+
+       resetBtn.addActionListener(new ActionListener(){
+
+        public void actionPerformed(ActionEvent e) {
+            // for(int j =0; j>totalAmt; j++){
+            //     //SetBackGnd(buttonsList.get(j));setActionCommand(String)
+            // }
+            resetBtn.setBackground(Color.YELLOW);
+
+
+        }
+    });
+
+
+
+       frame.add(resetBtn); 
+        frame.setVisible(true); 
+
+
+       
     }
 
     public static void SetBackGnd(JButton bttn){
