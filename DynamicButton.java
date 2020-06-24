@@ -11,6 +11,8 @@ import java.util.*;
 public class DynamicButton extends JFrame implements ActionListener{
     public static int clickedAmt =0;
 
+    public JFrame frame;
+
     public DynamicButton(){
         super("Dynamic Buttons");
        // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,9 +28,9 @@ public class DynamicButton extends JFrame implements ActionListener{
     
     public void AddButtons(int rows, int columns){
 
-        JFrame frame=new JFrame("Dynamic Buttons");
+        frame=new JFrame("Dynamic Buttons");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(900,900); 
+        frame.setSize(900,1000); 
         frame.setLayout(null);  
       
 
@@ -89,15 +91,39 @@ public class DynamicButton extends JFrame implements ActionListener{
        // frame.pack();
 
         JButton resetBtn = new JButton("Reset");
-       resetBtn.setBounds(finalXcd/2,finalycd+100,100,50);
-       resetBtn.setBackground(Color.gray);
+        resetBtn.setBounds(finalXcd/2,finalycd+100,100,50);
+        resetBtn.setBackground(Color.gray);
 
-       resetBtn.addActionListener(new ActionListener(){
+        JLabel lb= new JLabel("test");
+        lb.setBounds(finalXcd/2,finalycd+140,200,50);
+       
+
+        resetBtn.addActionListener(new ActionListener(){
 
         public void actionPerformed(ActionEvent e) {
             // for(int j =0; j>totalAmt; j++){
             //     //SetBackGnd(buttonsList.get(j));setActionCommand(String)
             // }
+
+            String name = "";
+            for(Component c : frame.getContentPane().getComponents()) {
+               
+
+                if(c instanceof JButton){
+                    JButton bn = (JButton) c;
+                    bn.setBackground(Color.LIGHT_GRAY);
+                    bn.setEnabled(true);
+                    bn.setOpaque(false);
+                    name += bn.getName();
+                    //String text = c.getText();
+                }
+                if(c instanceof JLabel){
+                    JLabel lb2=(JLabel)c;
+                    lb2.setText(name);
+                }
+
+            }
+
             resetBtn.setBackground(Color.YELLOW);
 
 
@@ -106,8 +132,9 @@ public class DynamicButton extends JFrame implements ActionListener{
 
 
 
-       frame.add(resetBtn); 
-        frame.setVisible(true); 
+    frame.add(resetBtn); 
+    frame.add(lb);
+    frame.setVisible(true); 
 
 
        
