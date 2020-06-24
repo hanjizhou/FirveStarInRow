@@ -12,6 +12,7 @@ public class DynamicButton extends JFrame implements ActionListener{
     public static int clickedAmt =0;
 
     public JFrame frame;
+    JLabel lbTest= new JLabel("test");
 
     public DynamicButton(){
         super("Dynamic Buttons");
@@ -63,19 +64,21 @@ public class DynamicButton extends JFrame implements ActionListener{
             
             btn.addActionListener(new ActionListener(){
 
-                int currentClick = 0;
+             // int currentClick = 0;
                 public void actionPerformed(ActionEvent e) {
-                    if(currentClick>0){
-                        btn.setEnabled(false);
-                    } else{
+                  // if(currentClick>0){
+                       
+                   // } else{
                         clickedAmt++;
                         if(clickedAmt%2==0){
                             btn.setBackground(Color.GREEN);
                         } else{
                             btn.setBackground(Color.YELLOW);
                         }
-                    }
-                    currentClick++;
+                        btn.setEnabled(false);
+                        lbTest.setText(btn.getText());
+                   // }
+                  //  currentClick++;
                 }
             });
 
@@ -94,8 +97,8 @@ public class DynamicButton extends JFrame implements ActionListener{
         resetBtn.setBounds(finalXcd/2,finalycd+100,100,50);
         resetBtn.setBackground(Color.gray);
 
-        JLabel lb= new JLabel("test");
-        lb.setBounds(finalXcd/2,finalycd+140,200,50);
+       
+        lbTest.setBounds(finalXcd/2,finalycd+140,200,50);
        
 
         resetBtn.addActionListener(new ActionListener(){
@@ -114,12 +117,12 @@ public class DynamicButton extends JFrame implements ActionListener{
                     bn.setBackground(Color.LIGHT_GRAY);
                     bn.setEnabled(true);
                     bn.setOpaque(false);
-                    name += bn.getName();
+                    name += bn.getText() + "|";
                     //String text = c.getText();
                 }
                 if(c instanceof JLabel){
                     JLabel lb2=(JLabel)c;
-                    lb2.setText(name);
+                    lb2.setText("null");
                 }
 
             }
@@ -133,7 +136,7 @@ public class DynamicButton extends JFrame implements ActionListener{
 
 
     frame.add(resetBtn); 
-    frame.add(lb);
+    frame.add(lbTest);
     frame.setVisible(true); 
 
 
