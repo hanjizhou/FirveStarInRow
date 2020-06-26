@@ -19,7 +19,7 @@ public class DynamicButton extends JFrame implements ActionListener{
        // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setSize(500, 500);
-        AddButtons(10,10);
+        AddButtons(15,15);
     }
 
     public void actionPerformed(ActionEvent event)
@@ -49,7 +49,7 @@ public class DynamicButton extends JFrame implements ActionListener{
 
         for (int i = 0; i<totalAmt; i++){
             if((i!=0)&&(i%columns ==0)){
-                yCoordinate = yCoordinate+ 75;
+                yCoordinate = yCoordinate+ 50;
                 xCoordinate=50; 
                 NumRows++;
                 NumCols=1;
@@ -57,9 +57,11 @@ public class DynamicButton extends JFrame implements ActionListener{
 
             JButton btn = new CreateRoundButton(NumRows+"-"+NumCols);
            //JButton btn  = new JButton(NumRows+"-"+NumCols);
-            btn.setBounds(xCoordinate,yCoordinate,75,75);
+            btn.setBounds(xCoordinate,yCoordinate,50,50);
             btn.setOpaque(false);
             btn.setBackground(Color.LIGHT_GRAY);
+           
+            btn.setFont(new Font("Arial", 0, 8));
            
             
             btn.addActionListener(new ActionListener(){
@@ -83,7 +85,7 @@ public class DynamicButton extends JFrame implements ActionListener{
             });
 
             frame.add(btn);
-            xCoordinate = xCoordinate+ 75;
+            xCoordinate = xCoordinate+ 50;
             NumCols++;
             finalXcd=xCoordinate;
             finalycd=yCoordinate;
